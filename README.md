@@ -33,9 +33,9 @@ More information
 ----------------
 
 For more information see:
- - [ASPECT's official website] (http://aspect.dealii.org)
- - [ASPECT's github repository] (https://www.github.com/geodynamics/aspect)
- - [the manual](http://www.math.clemson.edu/~heister/manual.pdf)
+ - [ASPECT's official website](http://aspect.dealii.org)
+ - [ASPECT's github repository](https://www.github.com/geodynamics/aspect)
+ - [ASPECT's manual](http://www.math.clemson.edu/~heister/manual.pdf)
 
 License
 -------
