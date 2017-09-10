@@ -1,0 +1,98 @@
+-----------------------------------------------------------------------------
+-- This is ASPECT, the Advanced Solver for Problems in Earth's ConvecTion.
+--     . version 2.0.0-pre
+--     . running in OPTIMIZED mode
+--     . running with 2 MPI processes
+--     . using Trilinos
+-----------------------------------------------------------------------------
+
+Number of active cells: 49,152 (on 4 levels)
+Number of degrees of freedom: 2,080,108 (1,216,710+52,258+405,570+405,570)
+
+*** Timestep 0:  t=0 years
+   Solving temperature system... 0 iterations.
+   Solving C_1 system ... 0 iterations.
+   Rebuilding Stokes preconditioner...
+   Solving Stokes system... 0+26 iterations.
+
+   Postprocessing:
+     RMS, max velocity:       0.0181 m/year, 0.0354 m/year
+     Temperature min/avg/max: 1521 K, 1600 K, 1679 K
+
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |       376s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble Stokes system          |         1 |        35s |       9.3% |
+| Assemble composition system     |         1 |      10.5s |       2.8% |
+| Assemble temperature system     |         1 |        32s |       8.5% |
+| Build Stokes preconditioner     |         1 |      23.1s |       6.2% |
+| Build composition preconditioner|         1 |      2.19s |      0.58% |
+| Build temperature preconditioner|         1 |      2.26s |       0.6% |
+| Solve Stokes system             |         1 |       232s |        62% |
+| Solve composition system        |         1 |     0.174s |         0% |
+| Solve temperature system        |         1 |     0.179s |         0% |
+| Initialization                  |         1 |    0.0896s |         0% |
+| Postprocessing                  |         1 |      2.45s |      0.65% |
+| Setup dof systems               |         1 |      2.62s |       0.7% |
+| Setup initial conditions        |         1 |      2.87s |      0.77% |
++---------------------------------+-----------+------------+------------+
+
+*** Timestep 1:  t=1.73825e+06 years
+   Solving temperature system... 12 iterations.
+   Solving C_1 system ... 13 iterations.
+   Rebuilding Stokes preconditioner...
+   Solving Stokes system... 0+24 iterations.
+
+   Postprocessing:
+     RMS, max velocity:       0.018 m/year, 0.0352 m/year
+     Temperature min/avg/max: 1522 K, 1600 K, 1678 K
+
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |       834s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble Stokes system          |         2 |      70.9s |       8.5% |
+| Assemble composition system     |         2 |      22.8s |       2.7% |
+| Assemble temperature system     |         2 |      49.8s |         6% |
+| Build Stokes preconditioner     |         2 |        47s |       5.6% |
+| Build composition preconditioner|         2 |      4.37s |      0.52% |
+| Build temperature preconditioner|         2 |       4.5s |      0.54% |
+| Solve Stokes system             |         2 |       590s |        71% |
+| Solve composition system        |         2 |     0.859s |       0.1% |
+| Solve temperature system        |         2 |     0.839s |       0.1% |
+| Initialization                  |         1 |    0.0896s |         0% |
+| Postprocessing                  |         2 |      4.91s |      0.59% |
+| Setup dof systems               |         1 |      2.62s |      0.31% |
+| Setup initial conditions        |         1 |      2.87s |      0.34% |
++---------------------------------+-----------+------------+------------+
+
+Termination requested by criterion: end step
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |       834s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble Stokes system          |         2 |      70.9s |       8.5% |
+| Assemble composition system     |         2 |      22.8s |       2.7% |
+| Assemble temperature system     |         2 |      49.8s |         6% |
+| Build Stokes preconditioner     |         2 |        47s |       5.6% |
+| Build composition preconditioner|         2 |      4.37s |      0.52% |
+| Build temperature preconditioner|         2 |       4.5s |      0.54% |
+| Solve Stokes system             |         2 |       590s |        71% |
+| Solve composition system        |         2 |     0.859s |       0.1% |
+| Solve temperature system        |         2 |     0.839s |       0.1% |
+| Initialization                  |         1 |    0.0896s |         0% |
+| Postprocessing                  |         2 |      4.91s |      0.59% |
+| Setup dof systems               |         1 |      2.62s |      0.31% |
+| Setup initial conditions        |         1 |      2.87s |      0.34% |
++---------------------------------+-----------+------------+------------+
+
