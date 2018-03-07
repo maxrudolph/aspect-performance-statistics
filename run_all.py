@@ -40,6 +40,7 @@ for core_count in core_counts:
             and
             core_count <= maximum_core_count_for_refinement_level[resolution]):
             for setup in setups:
+                jobname = "run_{:d}_{:d}_{:d}".format(core_count,resolution,setup)
                 output_file = "tmp/output_{:d}_{:d}_{:d}".format(core_count,resolution,setup)
                 input_file = "tmp/input_{:d}_{:d}_{:d}".format(core_count,resolution,setup)
                 print(output_file)
@@ -53,7 +54,7 @@ for core_count in core_counts:
                 aspect_command = "mpirun -n {:d} ./aspect {:s}".format(core_count,input_file)
                 print(aspect_command)
 
-                batch_command = "sbatch -p allcpu -n {:d} --exclusive --ntasks-per-node={:d} --time=10:00".format(core_count,tasks_per_node) + aspect_command
+                batch_command = "sbatch -p medium -n {:d} --exclusive --ntasks-per-node={:d} --time=30:00 --job-name={:s} --switches=1 ".format(core_count,tasks_per_node,jobname) + aspect_command
                 print(batch_command)
                 os.system(batch_command)
 
