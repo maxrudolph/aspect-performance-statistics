@@ -28,19 +28,19 @@ Number of degrees of freedom: 268,220 (156,774+6,930+52,258+52,258)
 |                                             |            |            |
 | Section                         | no. calls |  wall time | % of total |
 +---------------------------------+-----------+------------+------------+
-| Assemble Stokes system          |         1 |      1.11s |       8.7% |
-| Assemble composition system     |         1 |     0.386s |         3% |
-| Assemble temperature system     |         1 |     0.552s |       4.4% |
-| Build Stokes preconditioner     |         1 |     0.958s |       7.6% |
-| Build composition preconditioner|         1 |    0.0689s |      0.54% |
-| Build temperature preconditioner|         1 |    0.0726s |      0.57% |
-| Solve Stokes system             |         1 |      8.26s |        65% |
-| Solve composition system        |         1 |   0.00855s |         0% |
-| Solve temperature system        |         1 |    0.0219s |      0.17% |
-| Initialization                  |         1 |     0.056s |      0.44% |
-| Postprocessing                  |         1 |    0.0841s |      0.66% |
-| Setup dof systems               |         1 |     0.206s |       1.6% |
-| Setup initial conditions        |         1 |     0.154s |       1.2% |
+| Assemble Stokes system          |         1 |       1.1s |       8.7% |
+| Assemble composition system     |         1 |     0.397s |       3.1% |
+| Assemble temperature system     |         1 |     0.555s |       4.4% |
+| Build Stokes preconditioner     |         1 |     0.962s |       7.6% |
+| Build composition preconditioner|         1 |    0.0687s |      0.54% |
+| Build temperature preconditioner|         1 |    0.0767s |      0.61% |
+| Solve Stokes system             |         1 |      8.28s |        65% |
+| Solve composition system        |         1 |   0.00834s |         0% |
+| Solve temperature system        |         1 |     0.022s |      0.17% |
+| Initialization                  |         1 |    0.0484s |      0.38% |
+| Postprocessing                  |         1 |    0.0822s |      0.65% |
+| Setup dof systems               |         1 |     0.221s |       1.7% |
+| Setup initial conditions        |         1 |     0.138s |       1.1% |
 +---------------------------------+-----------+------------+------------+
 
 *** Timestep 1:  t=2.25405e+06 years
@@ -61,18 +61,18 @@ Number of degrees of freedom: 268,220 (156,774+6,930+52,258+52,258)
 | Section                         | no. calls |  wall time | % of total |
 +---------------------------------+-----------+------------+------------+
 | Assemble Stokes system          |         2 |      2.23s |       8.5% |
-| Assemble composition system     |         2 |     0.831s |       3.2% |
-| Assemble temperature system     |         2 |      1.14s |       4.4% |
-| Build Stokes preconditioner     |         2 |      1.83s |         7% |
-| Build composition preconditioner|         2 |     0.134s |      0.51% |
-| Build temperature preconditioner|         2 |     0.143s |      0.55% |
+| Assemble composition system     |         2 |     0.846s |       3.2% |
+| Assemble temperature system     |         2 |      1.15s |       4.4% |
+| Build Stokes preconditioner     |         2 |      1.84s |         7% |
+| Build composition preconditioner|         2 |     0.139s |      0.53% |
+| Build temperature preconditioner|         2 |     0.144s |      0.55% |
 | Solve Stokes system             |         2 |      18.4s |        70% |
-| Solve composition system        |         2 |    0.0389s |      0.15% |
-| Solve temperature system        |         2 |    0.0499s |      0.19% |
-| Initialization                  |         1 |     0.056s |      0.21% |
-| Postprocessing                  |         2 |     0.166s |      0.63% |
-| Setup dof systems               |         1 |     0.206s |      0.79% |
-| Setup initial conditions        |         1 |     0.154s |      0.59% |
+| Solve composition system        |         2 |    0.0388s |      0.15% |
+| Solve temperature system        |         2 |    0.0502s |      0.19% |
+| Initialization                  |         1 |    0.0484s |      0.18% |
+| Postprocessing                  |         2 |     0.165s |      0.63% |
+| Setup dof systems               |         1 |     0.221s |      0.84% |
+| Setup initial conditions        |         1 |     0.138s |      0.52% |
 +---------------------------------+-----------+------------+------------+
 
 Termination requested by criterion: end step
@@ -84,17 +84,17 @@ Termination requested by criterion: end step
 | Section                         | no. calls |  wall time | % of total |
 +---------------------------------+-----------+------------+------------+
 | Assemble Stokes system          |         2 |      2.23s |       8.5% |
-| Assemble composition system     |         2 |     0.831s |       3.2% |
-| Assemble temperature system     |         2 |      1.14s |       4.4% |
-| Build Stokes preconditioner     |         2 |      1.83s |         7% |
-| Build composition preconditioner|         2 |     0.134s |      0.51% |
-| Build temperature preconditioner|         2 |     0.143s |      0.55% |
+| Assemble composition system     |         2 |     0.846s |       3.2% |
+| Assemble temperature system     |         2 |      1.15s |       4.4% |
+| Build Stokes preconditioner     |         2 |      1.84s |         7% |
+| Build composition preconditioner|         2 |     0.139s |      0.53% |
+| Build temperature preconditioner|         2 |     0.144s |      0.55% |
 | Solve Stokes system             |         2 |      18.4s |        70% |
-| Solve composition system        |         2 |    0.0389s |      0.15% |
-| Solve temperature system        |         2 |    0.0499s |      0.19% |
-| Initialization                  |         1 |     0.056s |      0.21% |
-| Postprocessing                  |         2 |     0.166s |      0.63% |
-| Setup dof systems               |         1 |     0.206s |      0.79% |
-| Setup initial conditions        |         1 |     0.154s |      0.59% |
+| Solve composition system        |         2 |    0.0388s |      0.15% |
+| Solve temperature system        |         2 |    0.0502s |      0.19% |
+| Initialization                  |         1 |    0.0484s |      0.18% |
+| Postprocessing                  |         2 |     0.165s |      0.63% |
+| Setup dof systems               |         1 |     0.221s |      0.84% |
+| Setup initial conditions        |         1 |     0.138s |      0.52% |
 +---------------------------------+-----------+------------+------------+
 

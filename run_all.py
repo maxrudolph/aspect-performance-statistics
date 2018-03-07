@@ -11,11 +11,11 @@ base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' inpu
 # modify this to contain the commands necessary to setup MPI environment
 environment_setup_commands = "module purge; module load impi local-gcc-6.3.0"
 
-core_counts = [1,2,4,8,10,20,40,80,120,160,180,200,300,400,500,800,1000]
+core_counts = [1,2,4,8,10,20,40,80,120,160,180,200,300,400,500,800,1000,1500]
 refinement_levels = [2,3,4,5]#,6]
 #                                          0   1   2   3    4    5     6
-minimum_core_count_for_refinement_level = [0,  0,  1, 10,  10, 500,  500]# for refinement levels 0-6
-maximum_core_count_for_refinement_level = [0,  0,150,400,1000, 1500,1500]
+minimum_core_count_for_refinement_level = [0,  0,  1,  1,  10,  500, 500]# for refinement levels 0-6
+maximum_core_count_for_refinement_level = [0,  0, 20, 20, 1000, 1500,1500]
 
 setups = [1,]
 tasks_per_node = 20
