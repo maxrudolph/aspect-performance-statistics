@@ -11,9 +11,8 @@ base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' inpu
 # modify this to contain the commands necessary to setup MPI environment
 environment_setup_commands = "module purge; module load impi local-gcc-6.3.0"
 
-cluster_description = "PI4CS_COEUS_aspect_2.0-pre"
-core_counts = [1,2,4,8]#,10,20,40,80,120,160,180,200,300,400,500,800,1000]
-refinement_levels = [2,3]#4,5,6]
+core_counts = [1,2,4,8,10,20,40,80,120,160,180,200,300,400,500,800,1000]
+refinement_levels = [2,3,4,5]#,6]
 #                                          0   1   2   3    4    5     6
 minimum_core_count_for_refinement_level = [0,  0,  1, 10,  10, 500,  500]# for refinement levels 0-6
 maximum_core_count_for_refinement_level = [0,  0,150,400,1000, 1500,1500]
@@ -41,7 +40,7 @@ for core_count in core_counts:
             and
             core_count <= maximum_core_count_for_refinement_level[resolution]):
             for setup in setups:
-                output_file = "tmp/{:s}/output_{:d}_{:d}_{:d}".format(cluster_description,core_count,resolution,setup)
+                output_file = "tmp/output_{:d}_{:d}_{:d}".format(core_count,resolution,setup)
                 input_file = "tmp/input_{:d}_{:d}_{:d}".format(core_count,resolution,setup)
                 print(output_file)
                 parameters = dict([])
@@ -54,7 +53,7 @@ for core_count in core_counts:
                 aspect_command = "mpirun -n {:d} ./aspect {:s}".format(core_count,input_file)
                 print(aspect_command)
 
-                batch_command = "sbatch -p allcpu -n {:d} --exclusive --ntasks-per-node={:d} ".format(core_count,tasks_per_node) + aspect_command
+                batch_command = "sbatch -p allcpu -n {:d} --exclusive --ntasks-per-node={:d} --time=10:00".format(core_count,tasks_per_node) + aspect_command
                 print(batch_command)
-                #os.system(batch_command)
+                os.system(batch_command)
 
