@@ -58,7 +58,7 @@ for core_count in core_counts:
                 aspect_command = "mpirun -n {:d} ./aspect {:s}".format(core_count,input_file)
                 print(aspect_command)
 
-                batch_command = "sbatch -p medium -n {:d} --exclusive --ntasks-per-node={:d} --time=30:00 --job-name={:s} --switches=1 ".format(core_count,tasks_per_node,jobname) + aspect_command
+                batch_command = "sbatch -p medium -n {:d} --exclusive --ntasks-per-node={:d} --time=30:00 --job-name={:s} --switches=1 --bind-to-core".format(core_count,tasks_per_node,jobname) + aspect_command
                 print(batch_command)
                 os.system(batch_command)
 
