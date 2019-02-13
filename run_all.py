@@ -2,24 +2,28 @@
 # For the aspect performance benchmarks
 
 import numpy as np
+import matplotlib
+matplotlib.use('PS')
 import matplotlib.pyplot as plt
+
 from subprocess import run
 import os
 
 base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' input file that gets modified
-cluster_label = "PI4CS_aspect-2.0-pre-40tasks"
+#cluster_label = "PI4CS_aspect-2.0-pre-40tasks"
+cluster_label = "peloton-ii-64tasks"
 
 # modify this to contain the commands necessary to setup MPI environment
-environment_setup_commands = "module purge; module load impi local-gcc-6.3.0"
+environment_setup_commands = "module load openmpi/3.1.2"
 
-core_counts = [1,2,4,8,10,20,40,80,120,160,180,200,300,400,500,800,1000,1500]
+core_counts = [1,2,4,8,16,32,64,128,256,512]#,200,300,400]#,500,800,1000,1500]
 refinement_levels = [2,3,4,5]#,6]
 #                                          0   1   2   3       4     5    6
 minimum_core_count_for_refinement_level = [0,  0,   1,   1,   10, 100, 500]# for refinement levels 0-6
 maximum_core_count_for_refinement_level = [0,  0,1000,1000, 1000,1500,1500]
 
 setups = [1,]
-tasks_per_node = 20
+tasks_per_node = 64
 # make directories for temporary files
 os.system('mkdir tmp')
 os.system('mkdir tmp/'+cluster_label)
@@ -58,7 +62,7 @@ for core_count in core_counts:
                 aspect_command = "mpirun -n {:d} ./aspect {:s}".format(core_count,input_file)
                 print(aspect_command)
 
-                batch_command = "sbatch -p medium -n {:d} --exclusive --ntasks-per-node={:d} --time=30:00 --job-name={:s} --switches=1 --bind-to-core".format(core_count,tasks_per_node,jobname) + aspect_command
+                batch_command = "salloc -p med2 -n {:d} --exclusive --ntasks-per-node={:d} --time=30:00 --job-name={:s} --switches=1  ".format(core_count,tasks_per_node,jobname) + aspect_command 
                 print(batch_command)
                 os.system(batch_command)
 
