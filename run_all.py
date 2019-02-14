@@ -11,19 +11,19 @@ import os
 
 base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' input file that gets modified
 #cluster_label = "PI4CS_aspect-2.0-pre-40tasks"
-cluster_label = "peloton-ii-64tasks"
+cluster_label = "peloton-ii-32tasks-srun-openmpi2"
 
 # modify this to contain the commands necessary to setup MPI environment
 environment_setup_commands = "module load openmpi/3.1.2"
 
-core_counts = [1,2,4,8,16,32,64,128,256,512]#,200,300,400]#,500,800,1000,1500]
+core_counts = [1,2,4,8,16,32,64,128,192,256,320,448,512,768]#,200,300,400]#,500,800,1000,1500]
 refinement_levels = [2,3,4,5]#,6]
 #                                          0   1   2   3       4     5    6
 minimum_core_count_for_refinement_level = [0,  0,   1,   1,   10, 100, 500]# for refinement levels 0-6
-maximum_core_count_for_refinement_level = [0,  0,1000,1000, 1000,1500,1500]
+maximum_core_count_for_refinement_level = [0,  0,1000,1000, 1000,2000,2000]
 
 setups = [1,]
-tasks_per_node = 64
+tasks_per_node = 32
 # make directories for temporary files
 os.system('mkdir tmp')
 os.system('mkdir tmp/'+cluster_label)
@@ -42,6 +42,21 @@ def generate_input_file(base_file_name,output_file_name,dictionary):
     fh.close()
     ofh.close()
 
+def generate_slurm_file(slurm_file_name,ncpu,tasks_per_node,job_name,prmfile):
+    """Write the slurm file"""
+    fh = open(slurm_file_name,'w')
+    fh.write("#!/bin/bash\n")
+    fh.write("#SBATCH -p high2\n")
+    fh.write("#SBATCH -n {:d}\n".format(ncpu))
+    fh.write("#SBATCH --exclusive\n")
+    #fh.write("#SBATCH --ntasks-per-node={:d}\n".format(tasks_per_node))
+    fh.write("#SBATCH -c 2\n")
+    fh.write("#SBATCH --time=01:00:00\n")
+    fh.write("#SBATCH--job-name={:s}\n".format(job_name))
+    fh.write("#SBATCH --switches=1\n")
+    fh.write("mpirun ./aspect {:s}\n".format(prmfile))
+    fh.close()
+    
 for core_count in core_counts:
     for resolution in refinement_levels:
         if( core_count >= minimum_core_count_for_refinement_level[resolution]
@@ -58,11 +73,14 @@ for core_count in core_counts:
                 
                 # do string replacement on the base input file
                 generate_input_file(base_input,input_file,parameters)
-
-                aspect_command = "mpirun -n {:d} ./aspect {:s}".format(core_count,input_file)
-                print(aspect_command)
-
-                batch_command = "salloc -p med2 -n {:d} --exclusive --ntasks-per-node={:d} --time=30:00 --job-name={:s} --switches=1  ".format(core_count,tasks_per_node,jobname) + aspect_command 
-                print(batch_command)
-                os.system(batch_command)
+                
+                
+                #aspect_command = "srun ./aspect {:s}".format(input_file)
+                #print(aspect_command)
+                slurm_file = input_file + ".slurm"
+                generate_slurm_file(slurm_file,core_count,tasks_per_node,jobname,input_file)
+                os.system("sbatch " + slurm_file)
+                #batch_command = "salloc -p high2 -n {:d} --exclusive --ntasks-per-node={:d} --time=30:00 --job-name={:s} --switches=1  ".format(core_count,tasks_per_node,jobname) + aspect_command 
+                #print(batch_command)
+                #os.system(batch_command)
 
