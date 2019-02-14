@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-cluster=peloton-ii-32tasks-srun
+cluster=peloton-ii-32tasks-mkl-openmpi3
 mkdir results/spherical_shell_expensive_solver/${cluster}
 for i in `ls tmp/$cluster | grep output`
 do

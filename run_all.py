@@ -11,7 +11,7 @@ import os
 
 base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' input file that gets modified
 #cluster_label = "PI4CS_aspect-2.0-pre-40tasks"
-cluster_label = "peloton-ii-32tasks-srun-openmpi2"
+cluster_label = "peloton-ii-32tasks-mkl-openmpi3"
 
 # modify this to contain the commands necessary to setup MPI environment
 environment_setup_commands = "module load openmpi/3.1.2"
@@ -46,6 +46,7 @@ def generate_slurm_file(slurm_file_name,ncpu,tasks_per_node,job_name,prmfile):
     """Write the slurm file"""
     fh = open(slurm_file_name,'w')
     fh.write("#!/bin/bash\n")
+    fh.write("set -x\n")
     fh.write("#SBATCH -p high2\n")
     fh.write("#SBATCH -n {:d}\n".format(ncpu))
     fh.write("#SBATCH --exclusive\n")
@@ -54,7 +55,8 @@ def generate_slurm_file(slurm_file_name,ncpu,tasks_per_node,job_name,prmfile):
     fh.write("#SBATCH --time=01:00:00\n")
     fh.write("#SBATCH--job-name={:s}\n".format(job_name))
     fh.write("#SBATCH --switches=1\n")
-    fh.write("mpirun ./aspect {:s}\n".format(prmfile))
+    fh.write("module list\n")
+    fh.write("srun ./aspect {:s}\n".format(prmfile))
     fh.close()
     
 for core_count in core_counts:
