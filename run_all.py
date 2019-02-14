@@ -14,7 +14,7 @@ base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' inpu
 cluster_label = "peloton-ii-32tasks-mkl-openmpi3"
 
 # modify this to contain the commands necessary to setup MPI environment
-environment_setup_commands = "module load openmpi/3.1.2"
+environment_setup_commands = "module load openmpi/3.1.3 intel-mkl"
 
 core_counts = [1,2,4,8,16,32,64,128,192,256,320,448,512,768]#,200,300,400]#,500,800,1000,1500]
 refinement_levels = [2,3,4,5]#,6]
@@ -55,6 +55,7 @@ def generate_slurm_file(slurm_file_name,ncpu,tasks_per_node,job_name,prmfile):
     fh.write("#SBATCH --job-name={:s}\n".format(job_name))
     fh.write("#SBATCH --switches=1\n")
     fh.write("set -x\n")
+    fh.write(environment_setup_commands + "\n")
     fh.write("module list\n")
     fh.write("srun ./aspect {:s}\n".format(prmfile))
     fh.close()
