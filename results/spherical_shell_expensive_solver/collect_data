@@ -10,7 +10,8 @@ fi
 echo Resolution 2 3 4 5 6 > $output_file
 echo Cores DoFs 2.7E+5 2.1E+6 1.6E+7 1.3E+8 1.0E+9 >> $output_file
 
-for cores in 1 2 3 4 6 12 24 48 96 192 384 768 1536 3072 6144 12288; do
+for cores in `ls output* | cut -d _ -f 2 | uniq | sort -n `; do
+#1 2 4 8 16 32 64 96 128 192 256 320 448 512 640 704 768 1024 1280 1408; do
   echo -n $cores >> $output_file
 
   for resolution in `seq 2 6`; do
@@ -19,7 +20,7 @@ for cores in 1 2 3 4 6 12 24 48 96 192 384 768 1536 3072 6144 12288; do
     n_runs=0
 
     for run in `seq 1 1`; do
-      log_file=screen-output/output_${cores}_${resolution}_${run}
+      log_file=output_${cores}_${resolution}_${run}
 
       if [ -f $log_file ]; then
         dofs=`gawk '/Number of degrees of freedom:/ {print $6}' $log_file | sed "s/,//g"`
@@ -51,4 +52,4 @@ for cores in 1 2 3 4 6 12 24 48 96 192 384 768 1536 3072 6144 12288; do
   echo '' >> $output_file
 done # for cores
 
-gnuplot plot
+gnuplot ../plot
