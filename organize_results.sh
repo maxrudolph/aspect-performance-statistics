@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-cluster=peloton-ii-32tasks-ubuntu22
+cluster=hive-anytasks-ubuntu22
 mkdir results/spherical_shell_expensive_solver/${cluster}
 for i in `ls tmp/$cluster | grep output`
 do
