@@ -1,0 +1,112 @@
+-----------------------------------------------------------------------------
+-- This is ASPECT, the Advanced Solver for Problems in Earth's ConvecTion.
+--     . version 2.2.0-pre (master, c27890ff3)
+--     . using deal.II 9.0.1
+--     .       with 32 bit indices and vectorization level 1 (128 bits)
+--     . using Trilinos 12.10.1
+--     . using p4est 2.0.0
+--     . running in OPTIMIZED mode
+--     . running with 16 MPI processes
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+-- For information on how to cite ASPECT, see:
+--   https://aspect.geodynamics.org/citing.html?ver=2.2.0-pre&sha=c27890ff3&src=code
+-----------------------------------------------------------------------------
+Number of active cells: 393,216 (on 5 levels)
+Number of degrees of freedom: 16,380,620 (9,585,030+405,570+3,195,010+3,195,010)
+
+*** Timestep 0:  t=0 years
+   Solving temperature system... 0 iterations.
+   Solving C_1 system ... 0 iterations.
+   Rebuilding Stokes preconditioner...
+   Solving Stokes system... 0+13 iterations.
+
+   Postprocessing:
+     RMS, max velocity:       0.0181 m/year, 0.0353 m/year
+     Temperature min/avg/max: 1521 K, 1600 K, 1679 K
+
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |       296s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble Stokes system          |         1 |      53.1s |        18% |
+| Assemble composition system     |         1 |      13.7s |       4.6% |
+| Assemble temperature system     |         1 |      22.4s |       7.6% |
+| Build Stokes preconditioner     |         1 |      34.8s |        12% |
+| Build composition preconditioner|         1 |      3.74s |       1.3% |
+| Build temperature preconditioner|         1 |      3.77s |       1.3% |
+| Initialization                  |         1 |    0.0525s |         0% |
+| Postprocessing                  |         1 |      2.08s |       0.7% |
+| Setup dof systems               |         1 |      6.24s |       2.1% |
+| Setup initial conditions        |         1 |       8.7s |       2.9% |
+| Setup matrices                  |         1 |      18.6s |       6.3% |
+| Solve Stokes system             |         1 |       124s |        42% |
+| Solve composition system        |         1 |     0.309s |       0.1% |
+| Solve temperature system        |         1 |     0.421s |      0.14% |
++---------------------------------+-----------+------------+------------+
+
+*** Timestep 1:  t=1.26252e+06 years
+   Solving temperature system... 15 iterations.
+   Solving C_1 system ... 16 iterations.
+   Rebuilding Stokes preconditioner...
+   Solving Stokes system... 0+27 iterations.
+
+   Postprocessing:
+     RMS, max velocity:       0.0181 m/year, 0.035 m/year
+     Temperature min/avg/max: 1521 K, 1600 K, 1679 K
+
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |       887s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble Stokes system          |         2 |       108s |        12% |
+| Assemble composition system     |         2 |      30.6s |       3.5% |
+| Assemble temperature system     |         2 |      48.1s |       5.4% |
+| Build Stokes preconditioner     |         2 |        71s |         8% |
+| Build composition preconditioner|         2 |       7.4s |      0.83% |
+| Build temperature preconditioner|         2 |      7.52s |      0.85% |
+| Initialization                  |         1 |    0.0525s |         0% |
+| Postprocessing                  |         2 |      4.17s |      0.47% |
+| Setup dof systems               |         1 |      6.24s |       0.7% |
+| Setup initial conditions        |         1 |       8.7s |      0.98% |
+| Setup matrices                  |         1 |      18.6s |       2.1% |
+| Solve Stokes system             |         2 |       568s |        64% |
+| Solve composition system        |         2 |      1.57s |      0.18% |
+| Solve temperature system        |         2 |      1.64s |      0.19% |
++---------------------------------+-----------+------------+------------+
+
+Termination requested by criterion: end step
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |       888s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble Stokes system          |         2 |       108s |        12% |
+| Assemble composition system     |         2 |      30.6s |       3.5% |
+| Assemble temperature system     |         2 |      48.1s |       5.4% |
+| Build Stokes preconditioner     |         2 |        71s |         8% |
+| Build composition preconditioner|         2 |       7.4s |      0.83% |
+| Build temperature preconditioner|         2 |      7.52s |      0.85% |
+| Initialization                  |         1 |    0.0525s |         0% |
+| Postprocessing                  |         2 |      4.17s |      0.47% |
+| Setup dof systems               |         1 |      6.24s |       0.7% |
+| Setup initial conditions        |         1 |       8.7s |      0.98% |
+| Setup matrices                  |         1 |      18.6s |       2.1% |
+| Solve Stokes system             |         2 |       568s |        64% |
+| Solve composition system        |         2 |      1.57s |      0.18% |
+| Solve temperature system        |         2 |      1.64s |      0.19% |
++---------------------------------+-----------+------------+------------+
+
+-----------------------------------------------------------------------------
+-- For information on how to cite ASPECT, see:
+--   https://aspect.geodynamics.org/citing.html?ver=2.2.0-pre&sha=c27890ff3&src=code
+-----------------------------------------------------------------------------
