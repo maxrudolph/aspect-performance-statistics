@@ -10,11 +10,8 @@ from subprocess import run
 import os
 
 base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' input file that gets modified
-#cluster_label = "PI4CS_aspect-2.0-pre-40tasks"
+#cluster_label = "PI4CS_aspect-2.0-pre-40tasks"<<<<<<< HEAD
 cluster_label = "hive-anytasks-ubuntu22-09232025"
-
-# modify this to contain the commands necessary to setup MPI environment
-environment_setup_commands = ""
 
 core_counts = [1,2,4,8,16,32,64,128,192,256,320,448,512,768]#,200,300,400]#,500,800,1000,1500]
 refinement_levels = [2,3,4,5,6]
@@ -79,14 +76,8 @@ for core_count in core_counts:
                 
                 # do string replacement on the base input file
                 generate_input_file(base_input,input_file,parameters)
-                
-                
-                #aspect_command = "srun ./aspect {:s}".format(input_file)
-                #print(aspect_command)
                 slurm_file = input_file + ".slurm"
                 generate_slurm_file(slurm_file,core_count,tasks_per_node,jobname,input_file)
                 os.system("sbatch " + slurm_file)
-                #batch_command = "salloc -p high2 -n {:d} --exclusive --ntasks-per-node={:d} --time=30:00 --job-name={:s} --switches=1  ".format(core_count,tasks_per_node,jobname) + aspect_command 
-                #print(batch_command)
-                #os.system(batch_command)
+                
 

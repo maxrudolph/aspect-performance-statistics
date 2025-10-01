@@ -10,7 +10,12 @@ fi
 echo Resolution 2 3 4 5 6 > $output_file
 echo Cores DoFs 2.7E+5 2.1E+6 1.6E+7 1.3E+8 1.0E+9 >> $output_file
 
+<<<<<<< HEAD
 for cores in 1 2 3 4 8 16 32 64 128 192 256 320 448 512 768; do
+=======
+for cores in `ls output* | cut -d _ -f 2 | uniq | sort -n `; do
+#1 2 4 8 16 32 64 96 128 192 256 320 448 512 640 704 768 1024 1280 1408; do
+>>>>>>> 8cb6256d21275306f4e34261dbd734f94d3310eb
   echo -n $cores >> $output_file
 
   for resolution in `seq 2 6`; do
@@ -51,4 +56,4 @@ for cores in 1 2 3 4 8 16 32 64 128 192 256 320 448 512 768; do
   echo '' >> $output_file
 done # for cores
 
-gnuplot plot
+gnuplot ../plot
