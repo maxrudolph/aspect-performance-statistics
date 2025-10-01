@@ -32,24 +32,24 @@ Number of degrees of freedom: 268,220 (156,774+6,930+52,258+52,258)
 
 
 +----------------------------------------------+------------+------------+
-| Total wallclock time elapsed since start     |      3.48s |            |
+| Total wallclock time elapsed since start     |      2.54s |            |
 |                                              |            |            |
 | Section                          | no. calls |  wall time | % of total |
 +----------------------------------+-----------+------------+------------+
-| Assemble Stokes system rhs       |         1 |     0.218s |       6.3% |
-| Assemble composition system      |         1 |     0.297s |       8.5% |
-| Assemble temperature system      |         1 |      0.38s |        11% |
-| Build Stokes preconditioner      |         1 |    0.0295s |      0.85% |
-| Build composition preconditioner |         1 |    0.0697s |         2% |
-| Build temperature preconditioner |         1 |     0.125s |       3.6% |
-| Initialization                   |         1 |     0.401s |        12% |
-| Postprocessing                   |         1 |    0.0203s |      0.58% |
-| Setup dof systems                |         1 |     0.218s |       6.3% |
-| Setup initial conditions         |         1 |     0.149s |       4.3% |
-| Setup matrices                   |         1 |     0.161s |       4.6% |
-| Solve Stokes system              |         1 |      1.09s |        31% |
-| Solve composition system         |         1 |   0.00719s |      0.21% |
-| Solve temperature system         |         1 |   0.00513s |      0.15% |
+| Assemble Stokes system rhs       |         1 |     0.153s |         6% |
+| Assemble composition system      |         1 |      0.22s |       8.7% |
+| Assemble temperature system      |         1 |     0.265s |        10% |
+| Build Stokes preconditioner      |         1 |    0.0212s |      0.84% |
+| Build composition preconditioner |         1 |    0.0424s |       1.7% |
+| Build temperature preconditioner |         1 |    0.0538s |       2.1% |
+| Initialization                   |         1 |     0.296s |        12% |
+| Postprocessing                   |         1 |    0.0157s |      0.62% |
+| Setup dof systems                |         1 |     0.201s |       7.9% |
+| Setup initial conditions         |         1 |     0.106s |       4.2% |
+| Setup matrices                   |         1 |     0.137s |       5.4% |
+| Solve Stokes system              |         1 |     0.883s |        35% |
+| Solve composition system         |         1 |   0.00379s |      0.15% |
+| Solve temperature system         |         1 |   0.00471s |      0.19% |
 +----------------------------------+-----------+------------+------------+
 
 -- Total wallclock time elapsed including restarts: 3s
@@ -65,52 +65,52 @@ Number of degrees of freedom: 268,220 (156,774+6,930+52,258+52,258)
 
 
 +----------------------------------------------+------------+------------+
-| Total wallclock time elapsed since start     |      5.83s |            |
+| Total wallclock time elapsed since start     |      4.26s |            |
 |                                              |            |            |
 | Section                          | no. calls |  wall time | % of total |
 +----------------------------------+-----------+------------+------------+
-| Assemble Stokes system rhs       |         2 |     0.427s |       7.3% |
-| Assemble composition system      |         2 |     0.626s |        11% |
-| Assemble temperature system      |         2 |     0.738s |        13% |
-| Build Stokes preconditioner      |         2 |    0.0559s |      0.96% |
-| Build composition preconditioner |         2 |     0.128s |       2.2% |
-| Build temperature preconditioner |         2 |     0.177s |         3% |
-| Initialization                   |         1 |     0.401s |       6.9% |
-| Postprocessing                   |         2 |    0.0394s |      0.68% |
-| Setup dof systems                |         1 |     0.218s |       3.7% |
-| Setup initial conditions         |         1 |     0.149s |       2.6% |
-| Setup matrices                   |         1 |     0.161s |       2.8% |
-| Solve Stokes system              |         2 |      2.23s |        38% |
-| Solve composition system         |         2 |    0.0662s |       1.1% |
-| Solve temperature system         |         2 |    0.0475s |      0.81% |
+| Assemble Stokes system rhs       |         2 |     0.316s |       7.4% |
+| Assemble composition system      |         2 |     0.474s |        11% |
+| Assemble temperature system      |         2 |     0.548s |        13% |
+| Build Stokes preconditioner      |         2 |    0.0417s |      0.98% |
+| Build composition preconditioner |         2 |    0.0814s |       1.9% |
+| Build temperature preconditioner |         2 |    0.0904s |       2.1% |
+| Initialization                   |         1 |     0.296s |       6.9% |
+| Postprocessing                   |         2 |    0.0292s |      0.69% |
+| Setup dof systems                |         1 |     0.201s |       4.7% |
+| Setup initial conditions         |         1 |     0.106s |       2.5% |
+| Setup matrices                   |         1 |     0.137s |       3.2% |
+| Solve Stokes system              |         2 |      1.71s |        40% |
+| Solve composition system         |         2 |    0.0245s |      0.58% |
+| Solve temperature system         |         2 |    0.0242s |      0.57% |
 +----------------------------------+-----------+------------+------------+
 
--- Total wallclock time elapsed including restarts: 6s
+-- Total wallclock time elapsed including restarts: 4s
 Termination requested by criterion: end step
 
 
 +----------------------------------------------+------------+------------+
-| Total wallclock time elapsed since start     |      5.83s |            |
+| Total wallclock time elapsed since start     |      4.26s |            |
 |                                              |            |            |
 | Section                          | no. calls |  wall time | % of total |
 +----------------------------------+-----------+------------+------------+
-| Assemble Stokes system rhs       |         2 |     0.427s |       7.3% |
-| Assemble composition system      |         2 |     0.626s |        11% |
-| Assemble temperature system      |         2 |     0.738s |        13% |
-| Build Stokes preconditioner      |         2 |    0.0559s |      0.96% |
-| Build composition preconditioner |         2 |     0.128s |       2.2% |
-| Build temperature preconditioner |         2 |     0.177s |         3% |
-| Initialization                   |         1 |     0.401s |       6.9% |
-| Postprocessing                   |         2 |    0.0394s |      0.68% |
-| Setup dof systems                |         1 |     0.218s |       3.7% |
-| Setup initial conditions         |         1 |     0.149s |       2.6% |
-| Setup matrices                   |         1 |     0.161s |       2.8% |
-| Solve Stokes system              |         2 |      2.23s |        38% |
-| Solve composition system         |         2 |    0.0662s |       1.1% |
-| Solve temperature system         |         2 |    0.0475s |      0.81% |
+| Assemble Stokes system rhs       |         2 |     0.316s |       7.4% |
+| Assemble composition system      |         2 |     0.474s |        11% |
+| Assemble temperature system      |         2 |     0.548s |        13% |
+| Build Stokes preconditioner      |         2 |    0.0417s |      0.98% |
+| Build composition preconditioner |         2 |    0.0814s |       1.9% |
+| Build temperature preconditioner |         2 |    0.0904s |       2.1% |
+| Initialization                   |         1 |     0.296s |       6.9% |
+| Postprocessing                   |         2 |    0.0292s |      0.68% |
+| Setup dof systems                |         1 |     0.201s |       4.7% |
+| Setup initial conditions         |         1 |     0.106s |       2.5% |
+| Setup matrices                   |         1 |     0.137s |       3.2% |
+| Solve Stokes system              |         2 |      1.71s |        40% |
+| Solve composition system         |         2 |    0.0245s |      0.58% |
+| Solve temperature system         |         2 |    0.0242s |      0.57% |
 +----------------------------------+-----------+------------+------------+
 
--- Total wallclock time elapsed including restarts: 6s
+-- Total wallclock time elapsed including restarts: 4s
 -----------------------------------------------------------------------------
 -- For information on how to cite ASPECT, see:
 --   https://aspect.geodynamics.org/citing.html?ver=3.1.0-pre&mf=1&sha=bb97f32a4&src=code

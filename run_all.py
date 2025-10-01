@@ -11,13 +11,13 @@ import os
 
 base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' input file that gets modified
 #cluster_label = "PI4CS_aspect-2.0-pre-40tasks"
-cluster_label = "hive-anytasks-ubuntu22"
+cluster_label = "hive-anytasks-ubuntu22-09232025"
 
 # modify this to contain the commands necessary to setup MPI environment
 environment_setup_commands = ""
 
-core_counts = [1,2,4,8,16,32,64,128,192,256]#,320,448,512,768]#,200,300,400]#,500,800,1000,1500]
-refinement_levels = [2,3,4,5]#,6]
+core_counts = [1,2,4,8,16,32,64,128,192,256,320,448,512,768]#,200,300,400]#,500,800,1000,1500]
+refinement_levels = [2,3,4,5,6]
 #                                          0   1   2   3       4     5    6
 minimum_core_count_for_refinement_level = [0,  0,   1,   1,   10, 100, 500]# for refinement levels 0-6
 maximum_core_count_for_refinement_level = [0,  0,1000,1000, 1000,2000,2000]
@@ -52,7 +52,9 @@ def generate_slurm_file(slurm_file_name,ncpu,tasks_per_node,job_name,prmfile):
     #fh.write("#SBATCH --exclusive\n")
     #fh.write("#SBATCH --ntasks-per-node={:d}\n".format(tasks_per_node))
     #fh.write("#SBATCH -c 2\n")
-    fh.write("#SBATCH --time=01:00:00\n")
+    fh.write("#SBATCH --output slurm-%A_%a.out\n")
+    fh.write("#SBATCH --error slurm-%A_%a.err\n")
+    fh.write("#SBATCH --time=12:00:00\n")
     fh.write("#SBATCH --job-name={:s}\n".format(job_name))
     fh.write("#SBATCH --switches=1\n")
     fh.write("set -x\n")

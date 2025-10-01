@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-cluster=hive-anytasks-ubuntu22
+cluster=hive-anytasks-ubuntu22-09232025
 mkdir results/spherical_shell_expensive_solver/${cluster}
 for i in `ls tmp/$cluster | grep output`
 do
