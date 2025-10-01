@@ -10,8 +10,11 @@ from subprocess import run
 import os
 
 base_input = "setups/spherical_shell_expensive_solver.prm"     # The 'base' input file that gets modified
-#cluster_label = "PI4CS_aspect-2.0-pre-40tasks"<<<<<<< HEAD
-cluster_label = "hive-anytasks-ubuntu22-09232025"
+#cluster_label = "PI4CS_aspect-2.0-pre-40tasks"
+cluster_label = "hive-anytasks-ubuntu22-nobind"
+
+# modify this to contain the commands necessary to setup MPI environment
+environment_setup_commands = ""
 
 core_counts = [1,2,4,8,16,32,64,128,192,256,320,448,512,768]#,200,300,400]#,500,800,1000,1500]
 refinement_levels = [2,3,4,5,6]
@@ -57,7 +60,7 @@ def generate_slurm_file(slurm_file_name,ncpu,tasks_per_node,job_name,prmfile):
     fh.write("set -x\n")
     fh.write(environment_setup_commands + "\n")
     fh.write("module list\n")
-    fh.write("srun --cpu-bind=sockets ./aspect {:s}\n".format(prmfile))
+    fh.write("srun ./aspect {:s}\n".format(prmfile))
     fh.close()
     
 for core_count in core_counts:
